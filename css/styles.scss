@@ -1,0 +1,170 @@
+@import url("https://use.typekit.net/lso7kpo.css");
+// Variables
+$darkblue: #001940;
+$blue: #57617D;
+$lightblue: #DADBE3;
+$red: #EF4237;
+
+// mixins
+@mixin nunito{
+    font-family: nunito-sans, sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+@mixin nunito-bold{
+    font-family: nunito-sans, sans-serif;
+    font-style: normal;
+    font-weight: 700;
+}
+@mixin section-styles {
+    padding: 100px 0;
+    .wrapper{
+        max-width: 1100px;
+        flex-direction: column;
+    }
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    @include nunito();
+    background: $darkblue;
+    color: #fff
+}
+a{
+    text-decoration: none;
+    color: inherit;
+}
+.wrapper{
+    width: 98%;
+    max-width: 1300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.divider{
+    border-bottom: 1px solid #fff;
+}
+.highlight{
+    color: $red;
+}
+
+
+// header
+.header{
+    padding: 20px;
+    border-bottom: 3px solid #fff;
+
+    .wrapper{
+        align-items: center;
+    }
+
+    &_logo{
+        width: 200px;
+    }
+
+    .nav-list{
+        display: flex;
+        list-style-type: none;
+        text-transform: uppercase;
+
+        &_item{
+            margin-left: 50px;
+        }
+    }
+}
+
+
+// faq
+.faq{
+    @include section-styles();
+
+    &_title{
+        @include nunito-bold;
+        padding: 10px 0;
+    }
+
+    .questions{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &_card{
+        width: 30%;
+        margin-bottom: 50px;
+        &-question{
+            margin: 10px 0;
+            font-size: 16.5px;
+        }
+        &-answer{
+            font-size: 11px;
+        }
+    }
+}
+
+// videos
+.videos{
+    @include section-styles();
+    background: $lightblue;
+    color: #000;
+
+    .divider{
+        border-bottom: 1px solid #000;
+    }
+    &_title{
+        margin: 10px 0;
+    }
+    &_display{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &_card{
+        display: flex;
+        align-items: flex-start;
+        width: 50%;
+        margin: 50px 0;
+
+        &-video{
+            width: 40%;
+        }
+        &-info{
+            width: 60%;
+            padding: 0 20px;
+
+            &-title{
+                margin-bottom: 10px;
+                font-size: 16px;
+            }
+            &-p{
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+
+// footer
+.footer{
+    padding: 100px 0;
+    &_info{
+        width: 300px;
+        &-logo{
+            width: 200px;
+        }
+        &-statement{
+            font-size: 13px;
+            padding: 10px 0;
+        }
+        &-email{
+            &:hover{
+                color: $red;
+            }
+        }
+    }
+}
