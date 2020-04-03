@@ -19,8 +19,17 @@ $red: #EF4237;
 @mixin section-styles {
     padding: 100px 0;
     .wrapper{
+        @media only screen and (max-width: 816px) {
+            padding: 10px;
+        }
         padding: 0 100px;
         flex-direction: column;
+    }
+}
+// Media Queries
+@mixin card-break{
+    @media only screen and (max-width: 816px) {
+        @content;
     }
 }
 
@@ -74,8 +83,31 @@ a{
         text-transform: uppercase;
 
         &_item{
+            @media only screen and (max-width: 816px) {
+                display: none;
+            }
             margin-left: 50px;
             font-size: 14px;
+        }
+    }
+    .mobile-menu{
+        @media only screen and (max-width: 816px) {
+            display: flex;
+        }
+        display: none;
+        
+        justify-content: space-around;
+        align-items: stretch;
+        flex-direction: column;
+        width: 50px;
+        height: 50px;
+
+        div{
+            display: block;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            height: 0;
+            width: 100%;
         }
     }
 }
@@ -85,7 +117,7 @@ a{
 .faq{
     @include section-styles();
     .wrapper{
-        background: url("../images/California-bg.png") no-repeat center left;
+        background: url("../images/California-bg.png") no-repeat left 10%;
         background-size: contain;
 
     }
@@ -102,7 +134,11 @@ a{
     }
 
     &_card{
+        @include card-break{
+            width: 100%;
+        }
         width: 30%;
+        min-width: 300px;
         margin-bottom: 50px;
         &-question{
             margin: 10px 0;
@@ -133,9 +169,13 @@ a{
     }
 
     &_card{
+        @include card-break{
+            width: 100%;
+        }
         display: flex;
         align-items: flex-start;
         width: 50%;
+        min-width: 300px;
         margin: 50px 0;
 
         &-video{
@@ -176,3 +216,4 @@ a{
         }
     }
 }
+
