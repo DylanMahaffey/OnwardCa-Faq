@@ -47,6 +47,15 @@ body{
 a{
     text-decoration: none;
     color: inherit;
+    color: $blue;
+
+    transition: color .2s ease;
+    &:hover{
+        color: $red;
+    }
+}
+li{
+    margin-left: 20px;
 }
 .wrapper{
     width: 98%;
@@ -60,6 +69,9 @@ a{
 }
 .highlight{
     color: $red;
+}
+.highlight-blue{
+    color: $blue;
 }
 
 
@@ -118,7 +130,7 @@ a{
     @include section-styles();
     .wrapper{
         background: url("../images/California-bg.png") no-repeat left 10%;
-        background-size: contain;
+        background-size: 300px;
 
     }
 
@@ -128,17 +140,26 @@ a{
     }
 
     .questions{
+        &_title{
+            margin-top: 20px;
+            color: $red;
+        }
         display: flex;
         flex-wrap: wrap;
-        justify-content: space-between;
+        // justify-content: space-between;
     }
 
     &_card{
+        @media only screen and (max-width: 1122px) {
+            width: 50%;
+        }
         @include card-break{
             width: 100%;
         }
-        width: 30%;
+        
+        width: 33.3%;
         min-width: 300px;
+        padding-right: 5%;
         margin-bottom: 50px;
         &-question{
             margin: 10px 0;
@@ -146,7 +167,7 @@ a{
             color: $lightblue;
         }
         &-answer{
-            font-size: 11px;
+            font-size: 14px;
         }
     }
 }
@@ -176,7 +197,7 @@ a{
         align-items: flex-start;
         width: 50%;
         min-width: 300px;
-        margin: 50px 0;
+        margin: 20px 0 50px 0;
 
         &-video{
             width: 40%;
@@ -208,11 +229,6 @@ a{
         &-statement{
             font-size: 13px;
             padding: 10px 0;
-        }
-        &-email{
-            &:hover{
-                color: $red;
-            }
         }
     }
 }
